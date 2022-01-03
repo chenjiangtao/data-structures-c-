@@ -46,3 +46,9 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+*.iml
+.idea/*
+*/.idea/*
+.idea
+*/.idea
+
