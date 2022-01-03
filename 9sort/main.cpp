@@ -226,6 +226,7 @@ void BubbleSort(int a[],int n)
         cout<<a[i]<<"  ";
     cout<<endl;
 }
+//选择排序
 void SelectSort(int a[],int n)
 {
     int i;//n-1
@@ -242,8 +243,7 @@ void SelectSort(int a[],int n)
         for(j=i+1;j<n;j++)
             if(a[j]<a[min])
                 min=j;
-        if(min!=i)
-        {
+        if(min!=i){
             temp=a[i];
             a[i]=a[min];
             a[min]=temp;

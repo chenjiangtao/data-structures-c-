@@ -74,9 +74,8 @@ int searchList::Search2(DataType x)
     else//i==n 说明原来的数据里是没有
         return -1;
 }
-int searchList::BinarySearch(DataType x)
-{
-
+//二分查找法
+int searchList::BinarySearch(DataType x){
     int n=CurrentSize;
     int low=0;
     int high=n-1;
@@ -93,8 +92,7 @@ int searchList::BinarySearch(DataType x)
     }
     return -1;
 }
-int searchList::BinarySearch(DataType x,int low,int high)
-{
+int searchList::BinarySearch(DataType x,int low,int high){
     int mid=-1;
     if(low<=high)
     {
@@ -106,16 +104,14 @@ int searchList::BinarySearch(DataType x,int low,int high)
     }
     return mid;
 }
-int searchList::fibonacci(int i)
-{
+int searchList::fibonacci(int i){
     if(i==1||i==2)
         return 1;
     else
         return fibonacci(i-1)+fibonacci(i-2);
 }
 // 斐波那契查找
-int searchList::fibonacciSearch(vector<int>data, int maxSize, int targetValue)
-{
+int searchList::fibonacciSearch(vector<int>data, int maxSize, int targetValue){
     // 1：构建斐波那契数列
     vector<int>fiboArray(maxSize, 0);
     int oriLength = data.size();
