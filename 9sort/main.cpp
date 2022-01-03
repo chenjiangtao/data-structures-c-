@@ -9,7 +9,7 @@ typedef struct node
     int index;
 } Node;
 /*
- *9.4.2 ½õ±êÈüÅÅĞò
+ *9.4.2 é”¦æ ‡èµ›æ’åº
  * */
 void TournamentSort(int nums[],int n)
 {//nums[0]....nums[n-1]
@@ -21,7 +21,7 @@ void TournamentSort(int nums[],int n)
     int num1,num2;
     for(i=0;i<n;i++)
     {
-        if(nums[i]<MAX)//²»ÔÙ²Î¼ÓÅÅĞòµÄ½áµãµÄÖµÊÇMAX
+        if(nums[i]<MAX)//ä¸å†å‚åŠ æ’åºçš„ç»“ç‚¹çš„å€¼æ˜¯MAX
         {
 
             node.data=nums[i];
@@ -31,7 +31,7 @@ void TournamentSort(int nums[],int n)
 
     }
     node.data=MAX;
-    node.index=-1;//ÌØÊâ½áµã#
+    node.index=-1;//ç‰¹æ®Šç»“ç‚¹#
     q.push(node);
     while(q.empty()==false)
     {
@@ -53,7 +53,7 @@ void TournamentSort(int nums[],int n)
                 else
                     q.push(node2);
             }
-           // cout<<"node1.data="<<node1.data<<",node2.data="<<node2.data<<endl;
+            // cout<<"node1.data="<<node1.data<<",node2.data="<<node2.data<<endl;
         }
         if(q.empty()== false&&q.front().index == -1)
         {
@@ -63,53 +63,53 @@ void TournamentSort(int nums[],int n)
         }
     }
     cout<<node1.data<<"   ";
-    nums[node1.index]=MAX;//ĞŞ¸ÄÁËÔ­Ê¼Êı¾İ
-    //ÓĞ´ı¸Ä½ø
+    nums[node1.index]=MAX;//ä¿®æ”¹äº†åŸå§‹æ•°æ®
+    //æœ‰å¾…æ”¹è¿›
 }
 void InsertSort(int R[],int n)
 {
     int i;
     int temp;
     int j;
-    cout<<"ÅÅĞòÇ°:"<<endl;
+    cout<<"æ’åºå‰:"<<endl;
     for(i=0;i<n;i++)
         cout<<R[i]<<"  ";
     cout<<endl;
-    //Ã¿´Î²åÈë1¸öÔªËØ£¬
-    //²åÈën-1´Î
+    //æ¯æ¬¡æ’å…¥1ä¸ªå…ƒç´ ï¼Œ
+    //æ’å…¥n-1æ¬¡
     //R[i]......R[n-1]
     for(i=1;i<n;i++)
     {
         temp=R[i];
-        //tempĞèÒª±»²åÈëµ½R[0]....R[i-1]
+        //tempéœ€è¦è¢«æ’å…¥åˆ°R[0]....R[i-1]
         j=i-1;
         while(j>=0 && R[j]>temp)
-        {//°ÑËùÓĞ±Ètemp´óµÄÔªËØ
-         // ÍùºóÆ½ÒÆ1¸öµ¥Î»
+        {//æŠŠæ‰€æœ‰æ¯”tempå¤§çš„å…ƒç´ 
+            // å¾€åå¹³ç§»1ä¸ªå•ä½
             R[j+1]=R[j];
             j--;//j==-1
         }
         R[j+1]=temp;
     }
-    cout<<"ÅÅĞòºó:"<<endl;
+    cout<<"æ’åºå:"<<endl;
     for(i=0;i<n;i++)
         cout<<R[i]<<"  ";
     cout<<endl;
 }
-//²¹³äËã·¨,¶ş·Ö²åÈëÅÅĞò
-//ÕÛ°ë²åÈëÅÅĞò,n-1´Î
-//Ã¿´Î´ÓR[i].....R[n-1]
+//è¡¥å……ç®—æ³•,äºŒåˆ†æ’å…¥æ’åº
+//æŠ˜åŠæ’å…¥æ’åº,n-1æ¬¡
+//æ¯æ¬¡ä»R[i].....R[n-1]
 //temp=R[i]
-//tempĞèÒª²åÈëµ½R[0]....R[i-1]
-//R[0]....R[i-1]ÓĞĞò×ÓĞòÁĞ£¬ËùÒÔ¿ÉÒÔÓÃ
-//leftÖ¸ÕëÖ¸³öµÄÎ»ÖÃ¾ÍÊÇtempÓ¦¸Ã·ÅµÄÎ»ÖÃ
-//R[left]....R[i-1]¶¼ĞèÒªÍùºóÆ½ÒÆ1¸öµ¥Î»
+//tempéœ€è¦æ’å…¥åˆ°R[0]....R[i-1]
+//R[0]....R[i-1]æœ‰åºå­åºåˆ—ï¼Œæ‰€ä»¥å¯ä»¥ç”¨
+//leftæŒ‡é’ˆæŒ‡å‡ºçš„ä½ç½®å°±æ˜¯tempåº”è¯¥æ”¾çš„ä½ç½®
+//R[left]....R[i-1]éƒ½éœ€è¦å¾€åå¹³ç§»1ä¸ªå•ä½
 void BinaryInsertSort(int R[],int n)
 {
     int i;
     int temp;
     int j,left,right,mid;
-    cout<<"ÅÅĞòÇ°:"<<endl;
+    cout<<"æ’åºå‰:"<<endl;
     for(i=0;i<n;i++)
         cout<<R[i]<<"  ";
     cout<<endl;
@@ -125,16 +125,16 @@ void BinaryInsertSort(int R[],int n)
             if(temp<R[mid])
                 right=mid-1;
             else //temp>=R[mid]
-               left=mid+1;
+                left=mid+1;
         }
-        //Ëã·¨Í£ÏÂÀ´µÄÊ±ºò
-        //leftÖ¸ÕëÖ¸ÏòµÄÎ»ÖÃ£¬¾ÍÊÇtempÓ¦¸Ã²åÈëµÄÎ»ÖÃ
-        //R[left]....R[i-1]ºóÒÆ¶¯
+        //ç®—æ³•åœä¸‹æ¥çš„æ—¶å€™
+        //leftæŒ‡é’ˆæŒ‡å‘çš„ä½ç½®ï¼Œå°±æ˜¯tempåº”è¯¥æ’å…¥çš„ä½ç½®
+        //R[left]....R[i-1]åç§»åŠ¨
         for(j=i-1;j>=left;j--)
-             R[j+1]=R[j];
+            R[j+1]=R[j];
         R[left]=temp;
     }
-    cout<<"ÅÅĞòºó:"<<endl;
+    cout<<"æ’åºå:"<<endl;
     for(i=0;i<n;i++)
         cout<<R[i]<<"  ";
     cout<<endl;
@@ -150,7 +150,7 @@ void ShellInsert(int R[],int gap,int n)
         j=i-gap;//j=0,1,...gap-1
         while(j>=0 && R[j]>temp)
         {
-            R[j+gap]=R[j];//ÍùºóÒÆ¶¯1¸öµ¥Î» Æ½ÒÆ
+            R[j+gap]=R[j];//å¾€åç§»åŠ¨1ä¸ªå•ä½ å¹³ç§»
             j=j-gap;//j--
         }
         R[j+gap]=temp;
@@ -160,20 +160,20 @@ void ShellInsert(int R[],int gap,int n)
 
 int Partition(int R[],int left,int right)
 {
-   int pivot=R[left];
-   int i,j;
-   i=left,j=right;
-   while(i<j)
-   {//i>=j i==jÕÒµ½ÁËpivotÓ¦¸Ã´æ·ÅµÄÎ»ÖÃ
-       while(i<j&&R[j]>pivot)
-           j--;
-       R[i]=R[j];
-       while(i<j&&R[i]<=pivot)
-           i++;
-       R[j]=R[i];
-   }
-   R[i]=pivot;
-   return i;//i==j
+    int pivot=R[left];
+    int i,j;
+    i=left,j=right;
+    while(i<j)
+    {//i>=j i==jæ‰¾åˆ°äº†pivotåº”è¯¥å­˜æ”¾çš„ä½ç½®
+        while(i<j&&R[j]>pivot)
+            j--;
+        R[i]=R[j];
+        while(i<j&&R[i]<=pivot)
+            i++;
+        R[j]=R[i];
+    }
+    R[i]=pivot;
+    return i;//i==j
 }
 void QSort(int R[],int left,int right)
 {
@@ -196,7 +196,7 @@ void ShellSort(int R[],int n)
         ShellInsert(R,gap,n);
         gap=gap/2;
     }
-    cout<<"ÅÅĞòºó:"<<endl;
+    cout<<"æ’åºå:"<<endl;
     for(i=0;i<n;i++)
         cout<<R[i]<<"  ";
     cout<<endl;
@@ -205,7 +205,7 @@ void BubbleSort(int a[],int n)
 {
     int i,j,temp;
     bool swap;//
-    for(i=0;i<n-1;i++)//n-1´ÎÃ°ÅİÅÅĞò
+    for(i=0;i<n-1;i++)//n-1æ¬¡å†’æ³¡æ’åº
     {
         swap= false;
         for(j=0;j<n-i-1;j++)//j=n-2   j+1=n-1
@@ -221,7 +221,7 @@ void BubbleSort(int a[],int n)
         if(swap==false)
             break;
     }
-    cout<<"Ã°ÅİÅÅĞòºó:"<<endl;
+    cout<<"å†’æ³¡æ’åºå:"<<endl;
     for(i=0;i<n;i++)
         cout<<a[i]<<"  ";
     cout<<endl;
@@ -238,20 +238,20 @@ void SelectSort(int a[],int n)
     //       a[n-2].a[n-1]
     for(i=0;i<n-1;i++)//n-1
     {
-       min=i;
-       for(j=i+1;j<n;j++)
-           if(a[j]<a[min])
-               min=j;
-       if(min!=i)
-       {
-           temp=a[i];
-           a[i]=a[min];
-           a[min]=temp;
-       }
+        min=i;
+        for(j=i+1;j<n;j++)
+            if(a[j]<a[min])
+                min=j;
+        if(min!=i)
+        {
+            temp=a[i];
+            a[i]=a[min];
+            a[min]=temp;
+        }
     }
 }
 /*
- * 9.4.3¶ÑÅÅĞò
+ * 9.4.3å †æ’åº
  * */
 void SiftDown(int a[],int start,int n)
 {
@@ -260,10 +260,10 @@ void SiftDown(int a[],int start,int n)
     int i=start;
     int j=2*i+1;//i-->2*i+1, 2*i+2
     int temp=a[i];
-    while(j<n)//jÕâ¸ö±àºÅ´æÔÚ,½áµã´æÔÚ
+    while(j<n)//jè¿™ä¸ªç¼–å·å­˜åœ¨,ç»“ç‚¹å­˜åœ¨
     {
         if(j+1<n && a[j+1]>a[j])
-              j=j+1;
+            j=j+1;
         if(a[j]>temp)
         {
             a[i]=a[j];
@@ -275,10 +275,10 @@ void SiftDown(int a[],int start,int n)
 
     }
     a[i]=temp;
-   /* cout<<"n="<<n<<endl;
-    for(i=0;i<n;i++)
-        cout<<a[i]<<"  ";
-    cout<<"----------------------"<<endl;*/
+    /* cout<<"n="<<n<<endl;
+     for(i=0;i<n;i++)
+         cout<<a[i]<<"  ";
+     cout<<"----------------------"<<endl;*/
 }
 void HeapSort(int a[],int n)
 {
@@ -308,48 +308,48 @@ void CreateHeap(int a[],int n)
 void Merge(int nums[],int i1,int j1,int i2,int j2)
 {   //nums[i1]....nums[j1]
     //nums[i2]....nums[j2]
-   if(i1>j1||i2>j2)
-       return;
-   int k1,k2;
-   int i;
-   vector<int> a;
-   for(k1=i1,k2=i2;k1<=j1&&k2<=j2;)
-   {
-     if(nums[k1]<=nums[k2])
-         a.push_back(nums[k1++]);
-     else
-         a.push_back(nums[k2++]);
-   }
-   while(k1<=j1)
-       a.push_back(nums[k1++]);
+    if(i1>j1||i2>j2)
+        return;
+    int k1,k2;
+    int i;
+    vector<int> a;
+    for(k1=i1,k2=i2;k1<=j1&&k2<=j2;)
+    {
+        if(nums[k1]<=nums[k2])
+            a.push_back(nums[k1++]);
+        else
+            a.push_back(nums[k2++]);
+    }
+    while(k1<=j1)
+        a.push_back(nums[k1++]);
     while(k2<=j2)
         a.push_back(nums[k2++]);
-   for(i=0;i<a.size();i++)
-       nums[i1+i]=a[i];//¿½±´»ØÈ¥nums
+    for(i=0;i<a.size();i++)
+        nums[i1+i]=a[i];//æ‹·è´å›å»nums
 }
 void MergeSort(int nums[],int start,int end)
 {
-   if(start>=end)
-       return;
-   int mid=(start+end)/2;
+    if(start>=end)
+        return;
+    int mid=(start+end)/2;
     MergeSort(nums,start,mid);
     MergeSort(nums,mid+1,end);
     Merge(nums,start,mid,mid+1,end);
 }
 /*
- * 9.6»ùÊıÅÅĞò
+ * 9.6åŸºæ•°æ’åº
  * */
 //arrays[i]=3456
 //arrays[i]=746
 int findMax(int arrays[],int L,int R)
 {
-    //Èç¹û¸ÃÊı×éÖ»ÓĞÒ»¸öÊı£¬ÄÇÃ´×î´óµÄ¾ÍÊÇ¸ÃÊı×éµÚÒ»¸öÖµÁË
+    //å¦‚æœè¯¥æ•°ç»„åªæœ‰ä¸€ä¸ªæ•°ï¼Œé‚£ä¹ˆæœ€å¤§çš„å°±æ˜¯è¯¥æ•°ç»„ç¬¬ä¸€ä¸ªå€¼äº†
     if (L == R)
         return arrays[L];
     else
     {
         int a = arrays[L];
-        int b = findMax(arrays, L + 1, R);//ÕÒ³öÕûÌåµÄ×î´óÖµ
+        int b = findMax(arrays, L + 1, R);//æ‰¾å‡ºæ•´ä½“çš„æœ€å¤§å€¼
         if (a > b)
             return a;
         else
@@ -359,34 +359,34 @@ int findMax(int arrays[],int L,int R)
     }
 }
 /*
- * ´úÂë²»Î¨Ò»
- * Í°×Ó  ÓÃÊı×é£¬»¹ÊÇÁ´±í
+ * ä»£ç ä¸å”¯ä¸€
+ * æ¡¶å­  ç”¨æ•°ç»„ï¼Œè¿˜æ˜¯é“¾è¡¨
  * n*10
  * */
 void radixSort(int arrays[],int n)
 {
     int max = findMax(arrays, 0,n - 1);
-    //ĞèÒª±éÀúµÄ´ÎÊıÓÉÊı×é×î´óÖµµÄÎ»ÊıÀ´¾ö¶¨
+    //éœ€è¦éå†çš„æ¬¡æ•°ç”±æ•°ç»„æœ€å¤§å€¼çš„ä½æ•°æ¥å†³å®š
     for (int i = 1; max / i > 0; i = i * 10)
     {
         int buckets[n][10];
-        //»ñÈ¡Ã¿Ò»Î»Êı×Ö(¸ö¡¢Ê®¡¢°Ù¡¢Ç§Î»...·ÖÅäµ½Í°×ÓÀï)
-        memset(buckets,0,sizeof(buckets));//¡¾ÖØµã¡¿Ò»¶¨Òªmemset Ò»¶¨Òªmemset ·ñÔò»áÄÚ´æĞ¹Â©(Segmentation fault)
+        //è·å–æ¯ä¸€ä½æ•°å­—(ä¸ªã€åã€ç™¾ã€åƒä½...åˆ†é…åˆ°æ¡¶å­é‡Œ)
+        memset(buckets,0,sizeof(buckets));//ã€é‡ç‚¹ã€‘ä¸€å®šè¦memset ä¸€å®šè¦memset å¦åˆ™ä¼šå†…å­˜æ³„æ¼(Segmentation fault)
         for (int j = 0; j < n; j++)
         {
             int num = (arrays[j] / i) % 10;
-            //½«Æä·ÅÈëÍ°×ÓÀï
+            //å°†å…¶æ”¾å…¥æ¡¶å­é‡Œ
             buckets[j][num] = arrays[j];
         }
-        //»ØÊÕÍ°×ÓÀïµÄÔªËØ
+        //å›æ”¶æ¡¶å­é‡Œçš„å…ƒç´ 
         int k = 0;
-        //ÓĞ10¸öÍ°×Ó
+        //æœ‰10ä¸ªæ¡¶å­
         for (int j = 0; j < 10; j++)
         {
-            //¶ÔÃ¿¸öÍ°×ÓÀïµÄÔªËØ½øĞĞ»ØÊÕ
+            //å¯¹æ¯ä¸ªæ¡¶å­é‡Œçš„å…ƒç´ è¿›è¡Œå›æ”¶
             for (int l = 0; l < n; l++)
             {
-                //Èç¹ûÍ°×ÓÀïÃæÓĞÔªËØ¾Í»ØÊÕ(Êı¾İ³õÊ¼»¯»áÎª0)
+                //å¦‚æœæ¡¶å­é‡Œé¢æœ‰å…ƒç´ å°±å›æ”¶(æ•°æ®åˆå§‹åŒ–ä¼šä¸º0)
                 if (buckets[l][j] != 0)
                 {
                     arrays[k++] = buckets[l][j];
@@ -396,15 +396,15 @@ void radixSort(int arrays[],int n)
     }
 }
 /*
- * 9.9 ×ÛºÏ°¸Àı ±ÈÈüÅÅÃûÎÊÌâ
+ * 9.9 ç»¼åˆæ¡ˆä¾‹ æ¯”èµ›æ’åé—®é¢˜
  * */
 int main() {
     std::cout << "Hello, World!" << std::endl;
     int data[10]={49,38,65,97,76,13,27,50,35,22};
-   CreateHeap(data,10);
+    CreateHeap(data,10);
     HeapSort(data,10);
     int i;
-    cout<<"ÅÅĞòºó:"<<endl;
+    cout<<"æ’åºå:"<<endl;
     for(i=0;i<10;i++)
         cout<<data[i]<<"  ";
     cout<<endl;

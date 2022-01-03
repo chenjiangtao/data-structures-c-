@@ -7,19 +7,19 @@
 #include <stack>
 #include <vector>
 using namespace std;
-/*¡¾Àı3.1¡¿Èç¹ûÔªËØµÄ½øÕ»Ë³ĞòÊÇ1¡¢2 ¡¢3 ¡¢ 4 ¡¢5,
- * ÎÊÄÜ·ñµÃµ½3 ¡¢1 ¡¢4 ¡¢2 ¡¢5µÄ³öÕ»Ë³Ğò?
-ÅĞ¶ÏÄÜ·ñµÃµ½Ä³¸ö³öÕ»Ë³Ğò
+/*ã€ä¾‹3.1ã€‘å¦‚æœå…ƒç´ çš„è¿›æ ˆé¡ºåºæ˜¯1ã€2 ã€3 ã€ 4 ã€5,
+ * é—®èƒ½å¦å¾—åˆ°3 ã€1 ã€4 ã€2 ã€5çš„å‡ºæ ˆé¡ºåº?
+åˆ¤æ–­èƒ½å¦å¾—åˆ°æŸä¸ªå‡ºæ ˆé¡ºåº
  bool Judge
  * */
 void Stringsplit(string str, const char split,vector<string>& res)
 {
-    istringstream iss(str);	// ÊäÈëÁ÷
-    string token;			// ½ÓÊÕ»º³åÇø
-    while (getline(iss, token, split))	// ÒÔsplitÎª·Ö¸ô·û
-        {
+    istringstream iss(str);	// è¾“å…¥æµ
+    string token;			// æ¥æ”¶ç¼“å†²åŒº
+    while (getline(iss, token, split))	// ä»¥splitä¸ºåˆ†éš”ç¬¦
+    {
         res.push_back(token);
-        }
+    }
 }
 bool Judge(string input,string output)
 {
@@ -60,7 +60,7 @@ bool Judge(string input,string output)
     return true;
 }
 /*
- * ¡¾Àı3.4¡¿ÅĞ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÊÇ¶Ô³Æ´®
+ * ã€ä¾‹3.4ã€‘åˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯å¯¹ç§°ä¸²
  * */
 bool Symmetry(string s)
 {
@@ -76,15 +76,15 @@ bool Symmetry(string s)
     while(!stack.IsEmpty())
     {
         if(stack.Pop()!=s[i])
-            return false;//²»ÊÇ»ØÎÄ
+            return false;//ä¸æ˜¯å›æ–‡
         i++;
     }
-    return true;//ÊÇ»ØÎÄ
+    return true;//æ˜¯å›æ–‡
 }
 /*
- * 3.2Õ»×ÛºÏ°¸Àı
- * 3.2.1 ½øÖÆ×ª»»
- * Ê®½øÖÆÊı×ÖN×ª»»³Éd½øÖÆ
+ * 3.2æ ˆç»¼åˆæ¡ˆä¾‹
+ * 3.2.1 è¿›åˆ¶è½¬æ¢
+ * åè¿›åˆ¶æ•°å­—Nè½¬æ¢æˆdè¿›åˆ¶
  * */
 void Conversion(long N , int  d )
 {
@@ -99,9 +99,9 @@ void Conversion(long N , int  d )
     cout<<endl;
 }
 /*
- * 3.2.2 ±í´ïÊ½ÇóÖµ
- * Á½¸ö×Óº¯ÊıµÄ¶¨Òå
- * Ê×ÏÈÊÇÔËËã·ûÓÅÏÈ¼¶º¯Êı
+ * 3.2.2 è¡¨è¾¾å¼æ±‚å€¼
+ * ä¸¤ä¸ªå­å‡½æ•°çš„å®šä¹‰
+ * é¦–å…ˆæ˜¯è¿ç®—ç¬¦ä¼˜å…ˆçº§å‡½æ•°
  * */
 int Precedence(char op)
 {
@@ -119,7 +119,7 @@ int Precedence(char op)
             return 0;
     }
 }
-/*¼òµ¥ËãÊõÔËËãº¯Êı
+/*ç®€å•ç®—æœ¯è¿ç®—å‡½æ•°
  * */
 int compute(int opt1,int opt2,char opt)
 {
@@ -132,91 +132,91 @@ int compute(int opt1,int opt2,char opt)
     if(opt=='/')
         return opt2/opt1;
 }
-/*3.2.2 ±í´ïÊ½ÇóÖµ
- * ¼ÆËãÖĞ×º±í´ïÊ½µÄÇóÖµËã·¨
+/*3.2.2 è¡¨è¾¾å¼æ±‚å€¼
+ * è®¡ç®—ä¸­ç¼€è¡¨è¾¾å¼çš„æ±‚å€¼ç®—æ³•
  */
 void EvaluationExpression(string s)
 {///   "#30+15*2-(3+7)#"
     int i=0;
-    stack<char> OPTR;//²Ù×÷·ûÕ»
+    stack<char> OPTR;//æ“ä½œç¬¦æ ˆ
     //'+','*','-','+'
-    stack<int> OPND;//²Ù×÷ÊıÕ»
+    stack<int> OPND;//æ“ä½œæ•°æ ˆ
     int number=0;
     int opt1,opt2,result;
     char opt;
     char currentopt,stackopt;
-    OPTR.push('#');//Õ»µ×
-   for(i=0;i<s.length();)
-   {
-       if(s[i]>='0'&&s[i]<='9')
-       {
-           number=0;
-           while(s[i]>='0'&&s[i]<='9')
-           {//s[i]='6','6'-'0'=6
-               number=10*number+(s[i]-'0');
-               i++;
-           }
-           OPND.push(number);//µÃµ½µÄ²Ù×÷Êı½øÕ»
-       }
-       if(s[i]=='(')//Ö±½Ó½øÕ»
-           OPTR.push(s[i++]);
-       else if(s[i]==')')//À¨ºÅ±í´ïÊ½½áÊø,Á¢¿Ì¼ÆËã
-           {
-               opt=OPTR.top();//²Ù×÷·ûÕ»
-               while(opt!='(')
-               {
-                   OPTR.pop();
-                   opt1=OPND.top();//²Ù×÷ÊıÕ»
-                   OPND.pop();
-                   opt2=OPND.top();
-                   OPND.pop();
-                   result=compute(opt1,opt2,opt);
-                   OPND.push(result);
-                   opt=OPTR.top();
-               }
-               OPTR.pop();//'('³öÕ»
-               i++;
-           }
-          else if(s[i]=='+'||s[i]=='-'||s[i]=='*'||s[i]=='/')
-               {
-                   currentopt=s[i];//½«Òª½øÕ»µÄÔËËã·û
-                   stackopt=OPTR.top();//Õ»¶¥ÔËËã·û,²»³öÕ»
-                   while(Precedence(currentopt)<=Precedence(stackopt))
-                   {
-                       OPTR.pop();//ÓÅÏÈ¼¶±È ¼´½«Òª½øÕ»µÄÔËËã·û
-                       //¸ß£¬¾ÍĞèÒª³öÕ»
-                       opt1=OPND.top();
-                       OPND.pop();
-                       opt2=OPND.top();
-                       OPND.pop();
-                       result=compute(opt1,opt2,stackopt);
-                       OPND.push(result);
-                       stackopt=OPTR.top();
-                   }
-                   OPTR.push(currentopt);//Õ»ËùÓĞÓÅÏÈ¼¶>=µ±Ç°
-                   //ÔËËã·ûÈ«¶¼³öÕ»ÒÔºó£¬µ±Ç°ÔËËã·û²Å½øÕ»
-                   i++;
-               } else if(s[i]=='#')//'#'½áÊø±êÖ¾
-               {
-                   while(OPTR.size()>1)
-                   {
-                       opt=OPTR.top();
-                       OPTR.pop();
-                       opt1=OPND.top();
-                       OPND.pop();
-                       opt2=OPND.top();
-                       OPND.pop();
-                       result=compute(opt1,opt2,opt);
-                       OPND.push(result);
-                   }
-                   cout<<OPND.top()<<endl;
-                   return;
-               }
-   }
+    OPTR.push('#');//æ ˆåº•
+    for(i=0;i<s.length();)
+    {
+        if(s[i]>='0'&&s[i]<='9')
+        {
+            number=0;
+            while(s[i]>='0'&&s[i]<='9')
+            {//s[i]='6','6'-'0'=6
+                number=10*number+(s[i]-'0');
+                i++;
+            }
+            OPND.push(number);//å¾—åˆ°çš„æ“ä½œæ•°è¿›æ ˆ
+        }
+        if(s[i]=='(')//ç›´æ¥è¿›æ ˆ
+            OPTR.push(s[i++]);
+        else if(s[i]==')')//æ‹¬å·è¡¨è¾¾å¼ç»“æŸ,ç«‹åˆ»è®¡ç®—
+        {
+            opt=OPTR.top();//æ“ä½œç¬¦æ ˆ
+            while(opt!='(')
+            {
+                OPTR.pop();
+                opt1=OPND.top();//æ“ä½œæ•°æ ˆ
+                OPND.pop();
+                opt2=OPND.top();
+                OPND.pop();
+                result=compute(opt1,opt2,opt);
+                OPND.push(result);
+                opt=OPTR.top();
+            }
+            OPTR.pop();//'('å‡ºæ ˆ
+            i++;
+        }
+        else if(s[i]=='+'||s[i]=='-'||s[i]=='*'||s[i]=='/')
+        {
+            currentopt=s[i];//å°†è¦è¿›æ ˆçš„è¿ç®—ç¬¦
+            stackopt=OPTR.top();//æ ˆé¡¶è¿ç®—ç¬¦,ä¸å‡ºæ ˆ
+            while(Precedence(currentopt)<=Precedence(stackopt))
+            {
+                OPTR.pop();//ä¼˜å…ˆçº§æ¯” å³å°†è¦è¿›æ ˆçš„è¿ç®—ç¬¦
+                //é«˜ï¼Œå°±éœ€è¦å‡ºæ ˆ
+                opt1=OPND.top();
+                OPND.pop();
+                opt2=OPND.top();
+                OPND.pop();
+                result=compute(opt1,opt2,stackopt);
+                OPND.push(result);
+                stackopt=OPTR.top();
+            }
+            OPTR.push(currentopt);//æ ˆæ‰€æœ‰ä¼˜å…ˆçº§>=å½“å‰
+            //è¿ç®—ç¬¦å…¨éƒ½å‡ºæ ˆä»¥åï¼Œå½“å‰è¿ç®—ç¬¦æ‰è¿›æ ˆ
+            i++;
+        } else if(s[i]=='#')//'#'ç»“æŸæ ‡å¿—
+        {
+            while(OPTR.size()>1)
+            {
+                opt=OPTR.top();
+                OPTR.pop();
+                opt1=OPND.top();
+                OPND.pop();
+                opt2=OPND.top();
+                OPND.pop();
+                result=compute(opt1,opt2,opt);
+                OPND.push(result);
+            }
+            cout<<OPND.top()<<endl;
+            return;
+        }
+    }
 
 }
 /*
- *3.2.3¼ìÑé±í´ïÊ½ÖĞµÄÀ¨ºÅÆ¥ÅäÇé¿ö
+ *3.2.3æ£€éªŒè¡¨è¾¾å¼ä¸­çš„æ‹¬å·åŒ¹é…æƒ…å†µ
  * */
 char LeftPart(char ch)
 {
@@ -230,7 +230,7 @@ char LeftPart(char ch)
 
 }
 /*
- * ¼ìË÷±í´ïÊ½ÖĞµÄÀ¨ºÅÆ¥ÅäÇé¿ö
+ * æ£€ç´¢è¡¨è¾¾å¼ä¸­çš„æ‹¬å·åŒ¹é…æƒ…å†µ
  * */
 bool CheckMath(string s)
 {
@@ -258,71 +258,71 @@ bool CheckMath(string s)
         return false;
 }
 /*
- * 3.ÎÊÌâµÄ½â·¨ÊÇµİ¹éµÄ
- * °Ë»ÊºóÎÊÌâ
- * ¿ÉÒÔĞ´µİ¹éËã·¨,Ò²¿ÉÒÔĞ´µü´úËã·¨
+ * 3.é—®é¢˜çš„è§£æ³•æ˜¯é€’å½’çš„
+ * å…«çš‡åé—®é¢˜
+ * å¯ä»¥å†™é€’å½’ç®—æ³•,ä¹Ÿå¯ä»¥å†™è¿­ä»£ç®—æ³•
  * */
 bool CheckPosition(int queens[],int m)
 {
- if(m==0)
-     return true;//²»³åÍ»
- int i;
- int x1,y1,x2,y2;
- x2=m;
- y2=queens[m];
- for(i=0;i<=m-1;i++)
- {
-     x1=i;
-     y1=queens[i];
-     if(x1==x2||y1==y2||x1+y1==x2+y2||x1-y1==x2-y2)
-         return false;
- }
- return true;//¿ÉÓÃµÄÎ»ÖÃ
+    if(m==0)
+        return true;//ä¸å†²çª
+    int i;
+    int x1,y1,x2,y2;
+    x2=m;
+    y2=queens[m];
+    for(i=0;i<=m-1;i++)
+    {
+        x1=i;
+        y1=queens[i];
+        if(x1==x2||y1==y2||x1+y1==x2+y2||x1-y1==x2-y2)
+            return false;
+    }
+    return true;//å¯ç”¨çš„ä½ç½®
 }
 void placeQueen(int n)
 {
     int queens[n];
     int i,j,stars;
-    int count=0;//½âµÄ¸öÊı
+    int count=0;//è§£çš„ä¸ªæ•°
     stars=1;//queen
     for(i=0;i<n;i++)
         queens[i]=0;//
-    while(queens[0]<n)//queens[0]==n Õû¸öËã·¨½áÊø
+    while(queens[0]<n)//queens[0]==n æ•´ä¸ªç®—æ³•ç»“æŸ
     {
-       while(CheckPosition(queens,stars)==false)
-       {
-           queens[stars]++;
+        while(CheckPosition(queens,stars)==false)
+        {
+            queens[stars]++;
 
-           while(queens[stars]==n&&stars!=0)
-           {//»ØËİ
-               queens[stars]=0;
-               stars--;
-               queens[stars]++;//ÉÏÒ»ĞĞ»Êºó->ÒÆ¶¯
-           }
-       }
-       stars++;
-       if(stars==n)
-       {//ÕÒµ½Ò»¸ö½â,Êä³ö
-           count++;
-           cout<<"The "<<count<<"solution"<<endl;
-           for(i=0;i<n;i++)
-               cout<<queens[i]<<"  ";
-           cout<<endl;
-           stars=stars-1;//×îºóÒ»ĞĞ
-           queens[stars]++;//Ñ°ÕÒÏÂÒ»¸ö½â
+            while(queens[stars]==n&&stars!=0)
+            {//å›æº¯
+                queens[stars]=0;
+                stars--;
+                queens[stars]++;//ä¸Šä¸€è¡Œçš‡å->ç§»åŠ¨
+            }
+        }
+        stars++;
+        if(stars==n)
+        {//æ‰¾åˆ°ä¸€ä¸ªè§£,è¾“å‡º
+            count++;
+            cout<<"The "<<count<<"solution"<<endl;
+            for(i=0;i<n;i++)
+                cout<<queens[i]<<"  ";
+            cout<<endl;
+            stars=stars-1;//æœ€åä¸€è¡Œ
+            queens[stars]++;//å¯»æ‰¾ä¸‹ä¸€ä¸ªè§£
 
-           while(queens[stars]==n&& stars!=0)
-           {//»ØËİ
-               queens[stars]=0;
-               stars--;
-               queens[stars]++;
-           }
-       }
+            while(queens[stars]==n&& stars!=0)
+            {//å›æº¯
+                queens[stars]=0;
+                stars--;
+                queens[stars]++;
+            }
+        }
     }
     cout<<"count="<<count<<endl;
 }
 /*
- * 3.5.1Ê¹ÓÃ¶ÓÁĞ´òÓ¡Ñî»ÔÈı½ÇĞÎ
+ * 3.5.1ä½¿ç”¨é˜Ÿåˆ—æ‰“å°æ¨è¾‰ä¸‰è§’å½¢
  * */
 
 void YangHui(int n)
@@ -334,10 +334,10 @@ void YangHui(int n)
     queue.EnQueue(1);
     queue.EnQueue(0);
     // 0   1   0
-    for(i=0;i<n;)//´òÓ¡nĞĞ
+    for(i=0;i<n;)//æ‰“å°nè¡Œ
     {
-        number1=queue.DeQueue();//¶ÓÊ×ÔªËØ³ö¶Ó
-        number2=queue.GetFront();//¶ÁĞÂµÄ¶ÓÊ×ÔªËØ
+        number1=queue.DeQueue();//é˜Ÿé¦–å…ƒç´ å‡ºé˜Ÿ
+        number2=queue.GetFront();//è¯»æ–°çš„é˜Ÿé¦–å…ƒç´ 
         if(number1==0)
             queue.EnQueue(0);
         if(number1>0)
@@ -345,17 +345,17 @@ void YangHui(int n)
         queue.EnQueue(number1+number2);
         if(number2==0)
         {
-            queue.DeQueue();//0³ö¶Ó
+            queue.DeQueue();//0å‡ºé˜Ÿ
             queue.EnQueue(0);
-            i++;//ÕâÒ»ĞĞ½áÊøÁË
-            cout<<endl;//»»ĞĞ;
+            i++;//è¿™ä¸€è¡Œç»“æŸäº†
+            cout<<endl;//æ¢è¡Œ;
         }
 
     }
 }
 
 /*
- * ¶şÎ¬Êı×é´òÓ¡Ñî»ÔÈı½Ç²Î¿¼´úÂë
+ * äºŒç»´æ•°ç»„æ‰“å°æ¨è¾‰ä¸‰è§’å‚è€ƒä»£ç 
  * */
 void PrintYangHui(int n)
 {
@@ -400,7 +400,7 @@ void PrintYangHui(int n)
     }
 }
 /*
- * 3.5.3Îè°éÎÊÌâ
+ * 3.5.3èˆä¼´é—®é¢˜
  * */
 void Dancing(int m,int n,int music)
 {
@@ -421,7 +421,7 @@ void Dancing(int m,int n,int music)
     for(k=1;k<=music;k++)
     {
 
-       cout<<"*****Dancing k="<<k<<"*****"<<endl;
+        cout<<"*****Dancing k="<<k<<"*****"<<endl;
         for(i=0;i<min;i++)
         {
             string g;
@@ -435,18 +435,18 @@ void Dancing(int m,int n,int music)
 }
 int main() {
     //cout<<CheckMath("ab(cd)ef{ee[uuu]ppqq}")<<endl;
-   // cout<<"--------------"<<endl;
-   // cout<<CheckMath("aa((nnbbbc)pp[000]")<<endl;
-   // EvaluationExpression("30+40*(50-20)/10#");
-  // string s="32+45*6-(10+20+30)+62/2#";
+    // cout<<"--------------"<<endl;
+    // cout<<CheckMath("aa((nnbbbc)pp[000]")<<endl;
+    // EvaluationExpression("30+40*(50-20)/10#");
+    // string s="32+45*6-(10+20+30)+62/2#";
 
- //  EvaluationExpression(s);
-   // Conversion(100,8);
-   // Conversion(100,2);
-   // placeQueen(8);
- //  cout<<Judge("1,2,3,4,5","3,1,4,2,5");
- // YangHui(10);
+    //  EvaluationExpression(s);
+    // Conversion(100,8);
+    // Conversion(100,2);
+    // placeQueen(8);
+    //  cout<<Judge("1,2,3,4,5","3,1,4,2,5");
+    // YangHui(10);
 //PrintYangHui(10);
-Dancing(8,5,5);
+    Dancing(8,5,5);
     return 0;
 }

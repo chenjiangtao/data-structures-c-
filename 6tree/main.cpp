@@ -1,26 +1,24 @@
 #include <iostream>
 #include "binarytree.h"
-#include "huffmantree.h"
-
 using namespace std;
 int main() {
 
     BinaryTree bt;
-//    bt.CreateBinTree();
-//    cout << "------·ÇµÝ¹éµÄÇ°Ðò------" << endl;
-//    bt.FirstOrder();
-//    cout << "\n------È«²¿Â·¾¶µÄÄæÐò------" << endl;
-//    bt.AllPath();
-//    cout << "\n------PrintTree------" << endl;
-
+    bt.CreateBinTree();
+    cout << "------éžé€’å½’çš„å‰åº------" << endl;
+    bt.FirstOrder();
+    cout << "\n------å…¨éƒ¨è·¯å¾„çš„é€†åº------" << endl;
+    bt.AllPath();
+    cout << "\n------PrintTree------" << endl;
     bt.PrintTree();
-    HuffmanTree hft;
+    /*
+     * HuffmanTree hft;
 	HTreeNode* root;
 	int a[5]={35,25,20,15,10};
 	hft.CreateHuffman(a,5);
 	root=hft.GetRoot();
 	hft.HuffmanCoding(root,0);
-//	return 0;
-
+	return 0;
+     * */
     return 0;
 }

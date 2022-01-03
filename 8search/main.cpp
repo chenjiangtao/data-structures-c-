@@ -2,9 +2,9 @@
 #include<string>
 #include<cstring>
 using namespace std;
-const int max_size=20;//ì³²¨ÄÇÆõÊı×éµÄ³¤¶È
+const int max_size=20;//æ–æ³¢é‚£å¥‘æ•°ç»„çš„é•¿åº¦
 
-/*¹¹ÔìÒ»¸öì³²¨ÄÇÆõÊı×é*/
+/*æ„é€ ä¸€ä¸ªæ–æ³¢é‚£å¥‘æ•°ç»„*/
 void Fibonacci(int * F)
 {
     F[0]=0;
@@ -13,20 +13,20 @@ void Fibonacci(int * F)
         F[i]=F[i-1]+F[i-2];
 }
 
-/*¶¨Òåì³²¨ÄÇÆõ²éÕÒ·¨*/
-int Fibonacci_Search(int *a, int n, int key)  //aÎªÒª²éÕÒµÄÊı×é,nÎªÒª²éÕÒµÄÊı×é³¤¶È,keyÎªÒª²éÕÒµÄ¹Ø¼ü×Ö
+/*å®šä¹‰æ–æ³¢é‚£å¥‘æŸ¥æ‰¾æ³•*/
+int Fibonacci_Search(int *a, int n, int key)  //aä¸ºè¦æŸ¥æ‰¾çš„æ•°ç»„,nä¸ºè¦æŸ¥æ‰¾çš„æ•°ç»„é•¿åº¦,keyä¸ºè¦æŸ¥æ‰¾çš„å…³é”®å­—
 {
     int low=0;
     int high=n-1;
 
     int F[max_size];
-    Fibonacci(F);//¹¹ÔìÒ»¸öì³²¨ÄÇÆõÊı×éF
+    Fibonacci(F);//æ„é€ ä¸€ä¸ªæ–æ³¢é‚£å¥‘æ•°ç»„F
 
     int k=0;
-    while(n>F[k]-1)//¼ÆËãnÎ»ÓÚì³²¨ÄÇÆõÊıÁĞµÄÎ»ÖÃ
+    while(n>F[k]-1)//è®¡ç®—nä½äºæ–æ³¢é‚£å¥‘æ•°åˆ—çš„ä½ç½®
         ++k;
 
-    int  * temp;//½«Êı×éaÀ©Õ¹µ½F[k]-1µÄ³¤¶È
+    int  * temp;//å°†æ•°ç»„aæ‰©å±•åˆ°F[k]-1çš„é•¿åº¦
     temp=new int [F[k]-1];
     memcpy(temp,a,n*sizeof(int));
 
@@ -49,9 +49,9 @@ int Fibonacci_Search(int *a, int n, int key)  //aÎªÒª²éÕÒµÄÊı×é,nÎªÒª²éÕÒµÄÊı×é³
         else
         {
             if(mid<n)
-                return mid; //ÈôÏàµÈÔòËµÃ÷mid¼´Îª²éÕÒµ½µÄÎ»ÖÃ
+                return mid; //è‹¥ç›¸ç­‰åˆ™è¯´æ˜midå³ä¸ºæŸ¥æ‰¾åˆ°çš„ä½ç½®
             else
-                return n-1; //Èômid>=nÔòËµÃ÷ÊÇÀ©Õ¹µÄÊıÖµ,·µ»Øn-1
+                return n-1; //è‹¥mid>=nåˆ™è¯´æ˜æ˜¯æ‰©å±•çš„æ•°å€¼,è¿”å›n-1
         }
     }
     delete [] temp;
@@ -78,10 +78,10 @@ int BinarySearch(int data[],int n,int k)
     int low=0;
     int high=n-1;
     int mid;
-    //Èç¹ûk²»ÔÚdata[0]...data[n-1]
+    //å¦‚æœkä¸åœ¨data[0]...data[n-1]
     if(k<data[0]||k>data[n-1])
-        return -1;//Ö±½Ó·µ»ØÊ§°Ü
-    //Èç¹ûk>data[0]
+        return -1;//ç›´æ¥è¿”å›å¤±è´¥
+    //å¦‚æœk>data[0]
     //k<data[n-1]
     // data[0].....k......data[n-1]
     while(low<=high)//low>high
@@ -96,7 +96,7 @@ int BinarySearch(int data[],int n,int k)
     }
     return -1;
 }
-//µİ¹é°æµÄ¶ş·Ö²éÕÒËã·¨
+//é€’å½’ç‰ˆçš„äºŒåˆ†æŸ¥æ‰¾ç®—æ³•
 int BinarySearch2(int data[],int low,int high,int k)
 {
     if(low>high)
@@ -143,10 +143,10 @@ int LIS(int a[],int b[],int n)
         cout<<b[k]<<" ";
     return j+1;
 }
-/*ÓÃ»§ÊäÈëµÄ×Ö·û´®inputword,ºÍµ¥´Ê±íµÄ
- * µÄÄ³¸ö¹Ø¼ü´Êwordslist_item±È½Ï
- * ÊÇ²»ÊÇinputword±Èwordslist_itemÉÙÒ»¸ö×ÖÄ¸
- * ÆäËü×ÖÄ¸ÍêÈ«ÏàÍ¬
+/*ç”¨æˆ·è¾“å…¥çš„å­—ç¬¦ä¸²inputword,å’Œå•è¯è¡¨çš„
+ * çš„æŸä¸ªå…³é”®è¯wordslist_itemæ¯”è¾ƒ
+ * æ˜¯ä¸æ˜¯inputwordæ¯”wordslist_itemå°‘ä¸€ä¸ªå­—æ¯
+ * å…¶å®ƒå­—æ¯å®Œå…¨ç›¸åŒ
 */
 bool IsShorter(string inputword,string wordslist_item)
 {
@@ -170,10 +170,10 @@ bool IsShorter(string inputword,string wordslist_item)
     else
         return false;
 }
-/*ÓÃ»§ÊäÈëµÄ×Ö·û´®inputword,ºÍµ¥´Ê±íµÄ
- * µÄÄ³¸ö¹Ø¼ü´Êwordslist_item±È½Ï
- * ÊÇ²»ÊÇinputword±Èwordslist_item¶àÒ»¸ö×ÖÄ¸
- * ÆäËü×ÖÄ¸ÍêÈ«ÏàÍ¬
+/*ç”¨æˆ·è¾“å…¥çš„å­—ç¬¦ä¸²inputword,å’Œå•è¯è¡¨çš„
+ * çš„æŸä¸ªå…³é”®è¯wordslist_itemæ¯”è¾ƒ
+ * æ˜¯ä¸æ˜¯inputwordæ¯”wordslist_itemå¤šä¸€ä¸ªå­—æ¯
+ * å…¶å®ƒå­—æ¯å®Œå…¨ç›¸åŒ
 */
 bool IsLonger(string inputword,string wordslist_item)
 {
@@ -197,10 +197,10 @@ bool IsLonger(string inputword,string wordslist_item)
     else
         return false;
 }
-/*ÓÃ»§ÊäÈëµÄ×Ö·û´®inputword,ºÍµ¥´Ê±íµÄ
- * µÄÄ³¸ö¹Ø¼ü´Êwordslist_item±È½Ï
- * ÊÇ²»ÊÇinputwordºÍwordslist_itemÖ»ÓĞÒ»¸ö×ÖÄ¸²»Í¬
- * ÆäËü×ÖÄ¸ÍêÈ«ÏàÍ¬
+/*ç”¨æˆ·è¾“å…¥çš„å­—ç¬¦ä¸²inputword,å’Œå•è¯è¡¨çš„
+ * çš„æŸä¸ªå…³é”®è¯wordslist_itemæ¯”è¾ƒ
+ * æ˜¯ä¸æ˜¯inputwordå’Œwordslist_itemåªæœ‰ä¸€ä¸ªå­—æ¯ä¸åŒ
+ * å…¶å®ƒå­—æ¯å®Œå…¨ç›¸åŒ
 */
 bool IsMissing(string inputword,string wordslist_item)
 {
@@ -229,7 +229,7 @@ bool IsEqual(string inputword,string wordslist_item)
     int i=0;
     int n=inputword.length();
     while(i<n && inputword[i]==wordslist_item[i])
-       i++;
+        i++;
     if(i==n)
         return true;
     else
@@ -246,8 +246,8 @@ string& trim(string &s)
     s.erase(s.find_last_not_of(" ") + 1);
     return s;
 }
-int stick[100]; //¼ÇÂ¼Ã¿¸öÄ¾°ôµÄ³¤¶È
-bool use[100];//¼ÇÂ¼Ä¾°ô±»Ê¹ÓÃµÄÇé¿ö
+int stick[100]; //è®°å½•æ¯ä¸ªæœ¨æ£’çš„é•¿åº¦
+bool use[100];//è®°å½•æœ¨æ£’è¢«ä½¿ç”¨çš„æƒ…å†µ
 int len,n;
 void sort(int nums[],int n)
 {
@@ -296,10 +296,10 @@ bool dfs(int unused,int left, int preno)
                 return true;
             else
             {
- //ÍË³öÉÏ´Î³¢ÊÔµÄÄ¾°ô£¬×¼±¸³¢ÊÔÏÂÒ»¸öÄ¾°ô
+                //é€€å‡ºä¸Šæ¬¡å°è¯•çš„æœ¨æ£’ï¼Œå‡†å¤‡å°è¯•ä¸‹ä¸€ä¸ªæœ¨æ£’
                 use[i]=false;
- //Èç¹ûµ±Ç°³¢ÊÔµÄÊÇÄ³¸öÔ­Ê¼Ä¾°ôÖĞµÄµÚÒ»¸öÎ»ÖÃ»ò×îºóÒ»¸öÎ»ÖÃ£¬
-//²¢ÇÒµ¼ÖÂ×îÖÕÊ§°Ü£¬Ôò²»±ØÔÙÔÚÕâ¸öÎ»ÖÃÉÏ³¢ÊÔÓàÏÂµÄÄ¾°ô
+                //å¦‚æœå½“å‰å°è¯•çš„æ˜¯æŸä¸ªåŸå§‹æœ¨æ£’ä¸­çš„ç¬¬ä¸€ä¸ªä½ç½®æˆ–æœ€åä¸€ä¸ªä½ç½®ï¼Œ
+//å¹¶ä¸”å¯¼è‡´æœ€ç»ˆå¤±è´¥ï¼Œåˆ™ä¸å¿…å†åœ¨è¿™ä¸ªä½ç½®ä¸Šå°è¯•ä½™ä¸‹çš„æœ¨æ£’
                 if(left==stick[i]||len==left)
                     return false;
             }
@@ -322,7 +322,7 @@ int main() {
     int sum=0;
     int i;
     n=9;
-    //len µÄ×îĞ¡¿ÉÄÜÈ¡ÖµµÈÓÚÄ¾°ôÖĞ×î³¤µÄÒ»¶Î
+    //len çš„æœ€å°å¯èƒ½å–å€¼ç­‰äºæœ¨æ£’ä¸­æœ€é•¿çš„ä¸€æ®µ
     for(len=stick[0];len<=sum;len++)
     {
         for(i=0;i<n;i++)
@@ -340,15 +340,15 @@ int main() {
         }
 
     }
-  // LIS(a,b,11);
+    // LIS(a,b,11);
     /* string userinputwords;
      string correctwordlist[max_size];
      int n;
-     cout<<"ÇëÊäÈëÒ»¸öµ¥´Ê:"<<endl;
+     cout<<"è¯·è¾“å…¥ä¸€ä¸ªå•è¯:"<<endl;
      cin>>userinputwords;
-     cout<<"ÇëÊäÈëµ¥´Ê±íµÄ³¤¶È:"<<endl;
+     cout<<"è¯·è¾“å…¥å•è¯è¡¨çš„é•¿åº¦:"<<endl;
      cin>>n;
-      cout<<"¿ªÊ¼ÊäÈëµ¥´Ê±í:"<<endl;
+      cout<<"å¼€å§‹è¾“å…¥å•è¯è¡¨:"<<endl;
       for(i=0;i<n;i++)
           cin>>correctwordlist[i];
       for(i=0;i<n;i++)
@@ -359,7 +359,7 @@ int main() {
               break;
           }
       }
-      if(i==n)//ÕÒ²»µ½ÍêÈ«ÏàÍ¬µÄ¹Ø¼ü´Ê
+      if(i==n)//æ‰¾ä¸åˆ°å®Œå…¨ç›¸åŒçš„å…³é”®è¯
       {
           for(i=0;i<n;i++)
           {
@@ -376,7 +376,7 @@ int main() {
       }
 
        int n=100;
-      int data[n];//»ù±¾Êı¾İÀàĞÍ
+      int data[n];//åŸºæœ¬æ•°æ®ç±»å‹
       Node nodes[n];
       int x;
       cin>>x;

@@ -6,8 +6,8 @@ int BF(string S, string T)
 {
     int i,j,k;
     int n,m;
-    n=S.length();//Ö÷´®SÀïÃæÓĞn¸ö×Ö·û
-    m=T.length();//×Ó´®TÀïÃæÓĞm¸ö×Ö·û
+    n=S.length();//ä¸»ä¸²Sé‡Œé¢æœ‰nä¸ªå­—ç¬¦
+    m=T.length();//å­ä¸²Té‡Œé¢æœ‰mä¸ªå­—ç¬¦
     if(n==0||m==0)
         return -1;
     //m<n   T.length<S.length
@@ -16,11 +16,11 @@ int BF(string S, string T)
 
     for(i=0;i<=n-m;i++)
     {
-        for(j=0;j<m;j++)//jÖ¸Ïò×Ó´®T
+        for(j=0;j<m;j++)//jæŒ‡å‘å­ä¸²T
             if(T[j]!=S[j+i])
                 break;
-            if(j==m)
-                return i;
+        if(j==m)
+            return i;
     }
     return -1;
 
@@ -45,8 +45,8 @@ int BF2(string S, string T)
     return -1;
 }
 /*
- * Ğ¡¼¼ÇÉ
- *ÓÉÒÑÖªµ½Î´Öª
+ * å°æŠ€å·§
+ *ç”±å·²çŸ¥åˆ°æœªçŸ¥
  * */
 void getNext(string T,int*& next)
 {
@@ -79,7 +79,7 @@ void KMP(string S,string T,int*& next)
     j=0;
     while(i<n && j<m)
     {
-        if(S[i]==T[j])//ÏàµÈ ±È½ÏÏÂÒ»¸ö×Ö·û
+        if(S[i]==T[j])//ç›¸ç­‰ æ¯”è¾ƒä¸‹ä¸€ä¸ªå­—ç¬¦
         {
             i++;
             j++;
@@ -110,28 +110,28 @@ int main() {
     getNext(t2,next);
     KMP(s,t2,next);
     cout<<"*-*-*-*-*-*-*-*-*-*-*-*-*"<<endl;
-    /*----stringÓĞ¶à¸ö¹¹Ôìº¯Êı------*/
+    /*----stringæœ‰å¤šä¸ªæ„é€ å‡½æ•°------*/
     string s1;  // s1 = ""
     string s2("Hello");  // s2 = "Hello"
     string s3(4, 'K');  // s3 = "KKKK"
-    string s4("12345", 1, 3);  //s4 = "234"£¬¼´ "12345" µÄ´ÓÏÂ±ê 1 ¿ªÊ¼£¬³¤¶ÈÎª 3 µÄ×Ó´®
-    /*ÅĞ¶Ï×Ö·û´®ÊÇ·ñÎª¿Õ*/
+    string s4("12345", 1, 3);  //s4 = "234"ï¼Œå³ "12345" çš„ä»ä¸‹æ ‡ 1 å¼€å§‹ï¼Œé•¿åº¦ä¸º 3 çš„å­ä¸²
+    /*åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©º*/
     if(s1.empty())
         cout<<"s1 is empty"<<endl;
-    /*¶Ô string ¶ÔÏó¸³ÖµÓĞÁ½ÖÖ·½Ê½*/
+    /*å¯¹ string å¯¹è±¡èµ‹å€¼æœ‰ä¸¤ç§æ–¹å¼*/
     string s5 = "Hello";  // s1 = "Hello"
-    s2 = 'K';  // s2 = "K¡±
+    s2 = 'K';  // s2 = "Kâ€
     s3.assign(s5);  // s3 = s5
     s2.assign(s5, 1, 2);  // s2 = "el"
     s2.assign(4, 'K');  // s2 = "KKKK"
-    s2.assign("abcde", 2, 3);  // s2 = "cde"£¬¼´ "abcde" µÄ×Ó´®(2, 3)
+    s2.assign("abcde", 2, 3);  // s2 = "cde"ï¼Œå³ "abcde" çš„å­ä¸²(2, 3)
     s2=s3;
-    /*Çó×Ö·û´®µÄ³¤¶È*/
+    /*æ±‚å­—ç¬¦ä¸²çš„é•¿åº¦*/
     cout<<"s2.length="<<s2.length()<<endl;
     cout<<"s3.length="<<s3.size()<<endl;
-    /*string¶ÔÏóÖĞ×Ö·û´®µÄÁ¬½Ó
-     * ¿ÉÒÔÓÃ+
-     * Ò²¿ÉÒÔÓÃ append ³ÉÔ±º¯Êı
+    /*stringå¯¹è±¡ä¸­å­—ç¬¦ä¸²çš„è¿æ¥
+     * å¯ä»¥ç”¨+
+     * ä¹Ÿå¯ä»¥ç”¨ append æˆå‘˜å‡½æ•°
      * */
 
     string s6("Hello");
@@ -141,41 +141,41 @@ int main() {
     s9.append(s10);  // s9 = "123abc"
     s9.append(s10, 1, 2);  // s9 = "123abcbc"
     s9.append(3, 'K');  // s9 = "123abcbcKKK"
-    s9.append("ABCDE", 2, 3);  // s9 = "123abcbcKKKCDE"£¬Ìí¼Ó "ABCDE" µÄ×Ó´®(2, 3)
-    /*string¶ÔÏóµÄ±È½Ï*/
+    s9.append("ABCDE", 2, 3);  // s9 = "123abcbcKKKCDE"ï¼Œæ·»åŠ  "ABCDE" çš„å­ä¸²(2, 3)
+    /*stringå¯¹è±¡çš„æ¯”è¾ƒ*/
     if(s2>s3)
         cout<<"s2>s3"<<endl;
     int n = s2.compare(s3);
-    /*Çó string ¶ÔÏóµÄ×Ó´®
+    /*æ±‚ string å¯¹è±¡çš„å­ä¸²
      * s9 = "123abcbcKKKCDE"
      * */
     string s11 = s9.substr(2, 4);  // s11 = "3abc"
     string s12 = s9.substr(2);  // s12 = "3abcbcKKKCDE"
-    /*½»»»Á½¸östring¶ÔÏóµÄÄÚÈİ*/
+    /*äº¤æ¢ä¸¤ä¸ªstringå¯¹è±¡çš„å†…å®¹*/
     s11.swap(s12);
-    /*²éÕÒ×Ó´®ºÍ×Ö·û*/
+    /*æŸ¥æ‰¾å­ä¸²å’Œå­—ç¬¦*/
     if ((n = s12.find("abc")) != string::npos)
-       cout<<"²éÕÒ³É¹¦"<<endl;
-    /*Ìæ»»×Ó´®
+        cout<<"æŸ¥æ‰¾æˆåŠŸ"<<endl;
+    /*æ›¿æ¢å­ä¸²
      * s12 = "3abcbcKKKCDE"
      * */
-    s12.replace(1, 5, "XXX");  //½«×Ó´®(1,5)Ìæ»»Îª"XXX"
-    /*É¾³ı×Ó´®
+    s12.replace(1, 5, "XXX");  //å°†å­ä¸²(1,5)æ›¿æ¢ä¸º"XXX"
+    /*åˆ é™¤å­ä¸²
      * s6="Hello"
      * s8="Helloworld"
      * */
-    s6.erase(1, 3);  //É¾³ı×Ó´®(1, 3)£¬´Ëºó s6 = "Ho"
-    s8.erase(5);//É¾³ıÏÂ±ê5¼°ÆäºóÃæµÄËùÓĞ×Ö·û£¬´Ëºó s8 ="Hello"
-    /* ²åÈë×Ö·û´®*/
+    s6.erase(1, 3);  //åˆ é™¤å­ä¸²(1, 3)ï¼Œæ­¤å s6 = "Ho"
+    s8.erase(5);//åˆ é™¤ä¸‹æ ‡5åŠå…¶åé¢çš„æ‰€æœ‰å­—ç¬¦ï¼Œæ­¤å s8 ="Hello"
+    /* æ’å…¥å­—ç¬¦ä¸²*/
     s1.assign("Limitless");
     s2="00";
-    s1.insert(2, "123");  //ÔÚÏÂ±ê 2 ´¦²åÈë×Ö·û´®"123"£¬s1 = "Li123mitless"
+    s1.insert(2, "123");  //åœ¨ä¸‹æ ‡ 2 å¤„æ’å…¥å­—ç¬¦ä¸²"123"ï¼Œs1 = "Li123mitless"
     //s1 = "Li123mitless"
-    s1.insert(3, s2);  //ÔÚÏÂ±ê 2 ´¦²åÈë s2 , s1 = "Li10023mitless"
+    s1.insert(3, s2);  //åœ¨ä¸‹æ ‡ 2 å¤„æ’å…¥ s2 , s1 = "Li10023mitless"
     string S="ababcabcacbab";
     string T="abcac";
     cout<<"BF="<<BF2(S,T);
-    /*±éÀú×Ö·û´®µÄÃ¿Ò»¸ö×Ö·û
+    /*éå†å­—ç¬¦ä¸²çš„æ¯ä¸€ä¸ªå­—ç¬¦
    int i;
    for(i=0;i<s12.length();i++)
        cout<<s12[i];
